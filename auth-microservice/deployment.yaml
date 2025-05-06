@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: auth-srv
-        image: docker.io/username/auth-srv:latest
+        image: docker.io/eydarouaz/auth-srv:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
