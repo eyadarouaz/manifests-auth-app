@@ -1,1 +1,21 @@
-apiVersion: 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-srv
+  namespace: application
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: auth-srv
+  template:
+    metadata:
+      labels:
+        app: auth-srv
+    spec:
+      containers:
+      - name: auth-srv
+        image: docker.io/username/auth-srv:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
