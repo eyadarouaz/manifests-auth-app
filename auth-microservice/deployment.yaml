@@ -19,3 +19,30 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
+        volumeMounts:
+        - name: secrets-store-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
+        env:
+        - name: DATABASE_URI
+          valueFrom:
+            secretKeyRef:
+              name: auth-db-url
+              key: auth-db-url
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: jwt-secret-key
+              key: jwt-secret-key
+        - name: ASB_CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: asb-connection-string
+              key: asb-connection-string
+      volumes:
+      - name: secrets-store-inline
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "azure-keyvault-secrets"
