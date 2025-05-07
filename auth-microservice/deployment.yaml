@@ -34,7 +34,7 @@ spec:
             secretKeyRef:
               name: jwt-secret-key
               key: jwt-secret-key
-        - name: ASB_CONNECTION_STRING
+        - name: AZURE_SERVICE_BUS_CONNECTION_STRING
           valueFrom:
             secretKeyRef:
               name: asb-connection-string
