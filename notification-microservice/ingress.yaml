@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: notif-srv
+  namespace: application
+  annotations:
+    konghq.com/strip-path: "true"
+spec:
+  ingressClassName: kong
+  rules:
+    - http:
+        paths:
+          - path: /notification
+            pathType: Prefix
+            backend:
+              service:
+                name: notif-srv
+                port:
+                  number: 80
