@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-srv
+  namespace: application
+spec:
+  selector:
+    app: auth-srv
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
