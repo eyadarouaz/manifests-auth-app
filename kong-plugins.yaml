@@ -1,6 +1,18 @@
 apiVersion: configuration.konghq.com/v1
 kind: KongPlugin
 metadata:
+  name: jwt-auth
+  namespace: application
+plugin: jwt
+config:
+  key_claim_name: kid
+  claims_to_verify:
+    - exp
+  secret_is_base64: false
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
   name: rate-limiting-prometheus
   namespace: application
 config:
