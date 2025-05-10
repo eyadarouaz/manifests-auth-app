@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: kong-client
+  namespace: default
+username: kong-client
+credentials:
+  - jwt
