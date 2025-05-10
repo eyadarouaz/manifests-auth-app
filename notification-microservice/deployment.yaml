@@ -45,6 +45,6 @@ spec:
           driver: secrets-store.csi.k8s.io
           readOnly: true
           volumeAttributes:
-            secretProviderClass: "azure-keyvault-secrets"
+            secretProviderClass: "notif-secrets"
           nodePublishSecretRef:
             name: secrets-store-creds
