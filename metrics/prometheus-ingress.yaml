@@ -4,9 +4,9 @@ metadata:
   name: prometheus-ingress
   namespace: monitoring
   annotations:
-    kong.ingress.kubernetes.io/strip-path: "true"
-    kong.ingress.kubernetes.io/rewrite-target: "/"
+    konghq.com/strip-path: "true"
 spec:
+  ingressClassName: kong
   rules:
     - http:
         paths:
