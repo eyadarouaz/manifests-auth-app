@@ -39,6 +39,11 @@ spec:
             secretKeyRef:
               name: asb-connection-string
               key: asb-connection-string
+        - name: JWT_ALGORITHM
+          valueFrom:
+            secretKeyRef:
+              name: jwt-algorithm
+              key: jwt-algorithm
       volumes:
       - name: secrets-store-inline
         csi:
