@@ -4,7 +4,7 @@ metadata:
   name: notif-srv
   namespace: application
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: notif-srv
@@ -39,6 +39,11 @@ spec:
             secretKeyRef:
               name: asb-connection-string
               key: asb-connection-string
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: jwt-secret-key
+              key: jwt-secret-key
       volumes:
       - name: secrets-store-inline
         csi:
